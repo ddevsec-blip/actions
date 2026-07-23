@@ -7,12 +7,12 @@ jobs:
       - name: build step
         run: echo "running building ...."
   test:
-     runs-on:
+     runs-on: ubuntu-22.04
      steps:
        - name: test-phase
          run: echo "running test cases...."
   deploy:
-    runs-on:
+    runs-on: ubuntu-22.04
     steps:
       - name: deploy the app
         run: echo "app deployed"
