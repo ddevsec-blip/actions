@@ -4,5 +4,7 @@ jobs:
   build: 
     runs-on: ubuntu-22.04
     steps:
-      - name: build
-        run: echo "building  ${{ secrets.DOCKER_PASSWORD}}"
+      - name: checkout scm
+        uses: actions/checkout@v4
+      - name: print file 
+        run: cat index.html
