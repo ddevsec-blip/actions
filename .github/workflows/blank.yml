@@ -1,5 +1,5 @@
 name: test-work
-on: workflow_dispatch
+on: push
 jobs:
   build: 
     runs-on: ubuntu-22.04
