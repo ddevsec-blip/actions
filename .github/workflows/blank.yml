@@ -1,10 +1,15 @@
-name: test-work
+name: deploy to s3
 on: push
 jobs:
   build: 
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: checkout scm
         uses: actions/checkout@v4
-      - name: print file 
-        run: cat index.html
+      - name: aws configure
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} }}
+          aws-secret-access-key-id: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+        
