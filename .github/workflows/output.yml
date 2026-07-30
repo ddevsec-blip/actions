@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run if push to main
-        if: github.ref == 'refs/heads/main'
+        if: github.actor == 'heamnth' || github.actor == 'ddevsec-blip'
         run: echo "pushed to main branch"
       - name: run noramally
         run: echo "this if normal run"
