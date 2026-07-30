@@ -1,18 +1,15 @@
-name: test outputs bw jobs
-on: push
+name: test-if
+on: 
+  push:
+    branches:
+      - main
+      - test
 jobs:
-  build:
-    outputs:
-      version: ${{ steps.step1.outputs.version }}
+  test-if:
     runs-on: ubuntu-latest
     steps:
-      - name: step1
-        id: step1
-        run: echo "version=0.1" >> $GITHUB_OUTPUT
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: deploying
-        run: echo "deploy vesrion ${{ needs.build.outputs.version}}"
-    
+      - name: run if push to main
+        if: github.ref == 'refs/heads/main'
+        run: echo "pushed to main branch"
+      - name: run noramally
+        run: echo "this if normal run"
