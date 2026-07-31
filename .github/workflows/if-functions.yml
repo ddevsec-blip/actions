@@ -10,7 +10,7 @@ jobs:
     if: startswith(github.ref_name,'feature') && github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
-        - name: quality check
+        - name: quality checked
           run: echo "quality is checked"
 
   dev_deploy:
