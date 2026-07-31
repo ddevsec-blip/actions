@@ -1,0 +1,27 @@
+name: if-functions
+on:
+    push:
+        branches:
+            - main
+            - feature/**
+            - develop
+jobs:
+  quality_check:
+    if: startswith(github.ref_name,'feature') && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+        - name: quality check
+          run: echo "quality is checked"
+
+  dev_deploy:
+    if: github.ref_name == 'develop' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+        - name: deploy to dev
+          run: echo "deploy to dev environment"
+  main_deploy:
+    if: github.ref_name == 'main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+        - name: deploy to main
+          run: echo "deploy to main environment"
