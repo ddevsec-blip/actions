@@ -7,9 +7,9 @@ on:
             - develop
 jobs:
   quality_check:
-    if: github.ref_name == 'feature' && github.event_name == 'push'
+    if: startsWith(github.ref_name,'feature') && github.event_name == 'push'
     runs-on: ubuntu-latest
-    steps
+    steps :
         - name: quality checked
           run: echo "quality is checked"
 
